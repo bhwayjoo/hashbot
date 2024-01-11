@@ -182,9 +182,10 @@ async def shorten_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await context.bot.send_message(chat_id=chat_id, text=f"{crack}", )
                 os.remove(filedir)
             except:
+                await context.bot.send_message(chat_id=chat_id, text=f"please send file ", )
                 os.remove(filedir)
         else:
-            await context.bot.send_message(chat_id=chat_id, text=f"please chose a option", )
+            await context.bot.send_message(chat_id=chat_id, text=f"Sending a file smaller than 20 mg", )
             os.remove(filedir)
     
     else:
@@ -215,11 +216,9 @@ async def shorten_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await context.bot.send_message(chat_id=chat_id, text=f"your password is only cracked ...", )
 
                 chat_id, a = start(chat_id, hash_type, target_hash, brut, text, min_num, max_num,'')
-                await context.bot.send_message(
-
-                    chat_id=chat_id,
-                    text=f"{a}",
-                )
+                
+                await context.bot.send_message(chat_id=chat_id, text=f"{a}",)
+                
             elif comm==("rok"):
                 await context.bot.send_message(chat_id=chat_id, text=f"your password is only cracked ...", )
                 hash_type = result.get("hassh")
@@ -230,7 +229,7 @@ async def shorten_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
                 chat_id,a = start( chat_id,hash_type, target_hash, brut, '', '', '','')
                 await context.bot.send_message(chat_id=chat_id, text=f"{a}",)
-
+        
 
             elif comm == ("file"):
                 print('hisse')
@@ -269,7 +268,7 @@ async def shorten_link(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
 
     except Exception as e:
-        await context.bot.send_message(chat_id=chat_id, text=f'type yes for continue and /start for reload')
+        await context.bot.send_message(chat_id=chat_id, text=f'sorry  i dont find your password')
 
 
 

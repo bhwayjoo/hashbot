@@ -104,9 +104,9 @@ def sum():
                     elif int(user.hassh)==3:
                         message = 'your hash is not hc22000 hash please enter a hc22000 hash'
 
-            elif user.brutetype==vide and user.characters==vide and user.min_num==vide and user.max_num==vide and user.complete=='no' or user.complete== 'file':
-                user.complete = 'filee'
-                db.session.commit()
+            elif user.brutetype==vide and user.characters==vide and user.min_num==vide and user.max_num==vide and user.complete=='no' :
+
+
                 user = User.query.filter_by(chat_id=chat_id).first_or_404()
                 user.brutetype = output
                 db.session.commit()
@@ -236,7 +236,7 @@ def sum():
                     message = 'Type your max numbers:'
 
 
-            elif user.complete=='yes':
+            
 
                 user = User.query.filter_by(chat_id=chat_id).first_or_404()
                 user.max_num = output
